@@ -1,0 +1,131 @@
+@import 'colors-waybar.css';
+
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: "JetBrains Mono Nerd Font";
+    font-size: 20px;
+}
+
+window#waybar {
+    background-color: transparent;
+    color: @foreground;
+    transition-property: background-color;
+    transition-duration: .5s;
+    padding: 0px 2px 0px 2px;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+
+
+/*
+window#waybar.empty {
+    background-color: transparent;
+}
+window#waybar.solo {
+    background-color: #FFFFFF;
+}
+*/
+
+button {
+    /* Use box-shadow instead of border so the text isn't offset */
+    box-shadow: inset 0 -3px transparent;
+    /* Avoid rounded borders under each button name */
+    border: none;
+    border-radius: 0;
+}
+
+/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
+button:hover {
+    background: inherit;
+    box-shadow: inset 0 -3px #ffffff;
+}
+
+#workspaces button {
+    padding: 0 5px;
+    color: @color4;
+}
+
+#workspaces {
+    padding: 0 13px 0 5px;
+    border-radius: 10px;
+    background-color: @background;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    background-color: @background;
+}
+
+#workspaces button.focused {
+    background-color: #64727D;
+    color: @color5;
+  border-radius: 10px;
+    background-color: @background;
+}
+
+#workspaces button.urgent {
+    background-color: #eb4d4b;
+    border-radius: 10px;
+    background-color: @background;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#disk,
+#temperature,
+#backlight,
+#network,
+#pulseaudio,
+#wireplumber,
+#custom-media,
+#window,
+#tray,
+#mode,
+#idle_inhibitor,
+#scratchpad,
+#power-profiles-daemon,
+#mpd {
+  background-color: @background;
+    border-radius: 10px;
+    padding: 0 15px 0 15px;
+}
+
+#window,
+#workspaces {
+    /*margin: 0 0px;*/
+}
+
+#clock {
+  color : @color1;
+}
+
+#window {
+  color: @color2;
+}
+
+#pulseaudio {
+    color: @color3;
+    border-radius: 10px;
+    background-color: @background;
+}
+
+#wireplumber {
+    background-color: #fff0f5;
+    color: #000000;
+    border-radius: 10px;
+    background-color: @background;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: #eb4d4b;
+}

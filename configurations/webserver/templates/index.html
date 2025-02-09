@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf8-8">
+    <title>Bonjour</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet"> 
+  </head>
+  
+  <body>
+    <h1> A Table </h1>
+    <span id="messageInput" role="textbox" contenteditable></span>
+    <button id="sendButton" onclick="sendMessage()"> Envoyer </button>
+  </body>
+
+  <script src="{{url_for('static', filename='script.js')}}"></script>
+  
+</html>
