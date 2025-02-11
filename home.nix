@@ -30,18 +30,10 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    # # Building this configuration will create a copy of 'dotfiles/screenrc' in
-    # # the Nix store. Activating the configuration will then make '~/.screenrc' a
-    # # symlink to the Nix store copy.
-    # ".screenrc".source = dotfiles/screenrc;
-
-    # # You can also set the file content immediately.
-    # ".gradle/gradle.properties".text = ''
-    #   org.gradle.console=verbose
-    #   org.gradle.daemon.idletimeout=3600000
-    # '';
+    force = true;
+    recursive = true;
+    ".config".source = "./configurations";
   };
-
   # Home Manager can also manage your environment variables through
   # 'home.sessionVariables'. These will be explicitly sourced when using a
   # shell provided by Home Manager. If you don't want to manage your shell
@@ -68,15 +60,6 @@
 
   programs.starship.enableTransience = true;
 
-  programs.fastfetch.enable = true;
-  home.file.".config/fastfetch/config.jsonc".source = ./configurations/fastfetch/config.jsonc;
-
-  # Sources all the file for hyprland which means config should be done there
-
-  home.file.".config/hypr".recursive = true;
-  home.file.".config/hypr".force = true;
-  home.file.".config/hypr".source = ./configurations/hypr;
-
   programs.fish.enable = true;
   programs.fish.shellInit = "pokeget random --hide-name | fastfetch --file-raw -";
   programs.fish.shellAliases = {
@@ -86,16 +69,6 @@
     clear = "clear && pokeget random --hide-name | fastfetch --file-raw -";
     cd = "z";
   };
-
-  home.file.".config/fish/functions/".recursive = true;
-  home.file.".config/fish/functions/".force = true;
-  home.file.".config/fish/functions/".source = ./configurations/fish/functions;
-
-  # Waybar
-
-  home.file.".config/waybar".recursive = true;
-  home.file.".config/waybar".force = true;
-  home.file.".config/waybar".source = ./configurations/waybar;
 
   gtk = {
     enable = true;
@@ -122,17 +95,6 @@
     window-padding-x = 15;
   };
 
-  # Pywal templates
-  
-  home.file.".config/wal/templates".recursive = true;
-  home.file.".config/wal/templates".force = true;
-  home.file.".config/wal/templates".source = ./configurations/wal/templates;
-
-  # Sets up nixpkgs config
-  home.file.".config/nixpkgs".recursive = true;
-  home.file.".config/nixpkgs".force = true;
-  home.file.".config/nixpkgs".source = ./configurations/nixpkgs;
-
   # Git config
   programs.git.enable = true;
 
@@ -148,11 +110,6 @@
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
 
-  # Nvim config
-  home.file.".config/nvim".recursive = true;
-  home.file.".config/nvim".force = true;
-  home.file.".config/nvim".source = ./configurations/nvim;
-
   # Add vesktop launch options
   xdg.desktopEntries = {
     vesktop = {
@@ -165,11 +122,6 @@
       # startupWMClass= "Vesktop";
     };
   };
-
-  # Wlogout config
-  home.file.".config/wlogout".recursive = true;
-  home.file.".config/wlogout".force = true;
-  home.file.".config/wlogout".source = ./configurations/wlogout;
 
   # Firefox config
   programs.firefox.enable = true;
