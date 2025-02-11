@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ inputs, pkgs, config, lib, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -19,8 +19,8 @@
   # environment.
   nixpkgs = {
     config = {
-      allowUnfree = true;
-      allowUnfreePredicate = (_: true);
+      allowunfree = true;
+      allowunfreepredicate = _: true;
     };
   };
 
@@ -166,11 +166,34 @@
     };
   };
 
+  # Wlogout config
+  home.file.".config/wlogout".recursive = true;
+  home.file.".config/wlogout".force = true;
+  home.file.".config/wlogout".source = ./configurations/wlogout;
+
   # Firefox config
   programs.firefox.enable = true;
   programs.firefox.profiles.default = {
     settings = {
       "sidebar.verticalTabs" = true;
+      "extensions.autoDisableScopes" = 0;
+      "browser.startup.page" = 3;
+      "general.autoScroll" = true;
+      DisablePocket = true;
+      DisableTelemetry = true;
+      DisableFirefoxAccounts = false;
+      NoDefaultBookmarks = true;
+      OfferToSaveLogins = false;
+      OfferToSaveLoginsDefault = false;
+      PasswordManagerEnabled = false;
     };
+    extensions = with inputs.firefox-addons.packages.${pkgs.system}; [
+      ublock-origin
+      pywalfox
+      sponsorblock
+      darkreader
+      return-youtube-dislikes
+      behind-the-overlay-revival
+    ];
   };
 }

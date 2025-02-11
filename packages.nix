@@ -55,6 +55,8 @@
     heroic
     pywalfox-native
     gcc
+    bluetuith
+    wlogout
   ];
   nixpkgs = { 
     overlays = [
