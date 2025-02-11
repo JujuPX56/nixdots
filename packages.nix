@@ -52,6 +52,9 @@
     copyq
     parabolic
     ollama
+    heroic
+    pywalfox-native
+    gcc
   ];
   nixpkgs = { 
     overlays = [

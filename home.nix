@@ -128,6 +128,11 @@
   home.file.".config/wal/templates".force = true;
   home.file.".config/wal/templates".source = ./configurations/wal/templates;
 
+  # Sets up nixpkgs config
+  home.file.".config/nixpkgs".recursive = true;
+  home.file.".config/nixpkgs".force = true;
+  home.file.".config/nixpkgs".source = ./configurations/nixpkgs;
+
   # Git config
   programs.git.enable = true;
 
@@ -158,6 +163,14 @@
       # keywords= ["discord" "vencord" "electron" "chat"];
       name= "Vesktop";
       # startupWMClass= "Vesktop";
+    };
+  };
+
+  # Firefox config
+  programs.firefox.enable = true;
+  programs.firefox.profiles.default = {
+    settings = {
+      "sidebar.verticalTabs" = true;
     };
   };
 }
