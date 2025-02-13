@@ -57,6 +57,7 @@
     gcc
     bluetuith
     wlogout
+    cmake
   ];
   nixpkgs = { 
     overlays = [

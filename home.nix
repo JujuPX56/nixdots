@@ -52,6 +52,7 @@
     # EDITOR = "emacs";
     EDITOR = "nvim";
     NIXPKGS_ALLOW_UNFREE = 1;
+    fish_greeting = "";
   };
 
   # Enable zoxide and everything else (no shell integration needed)
