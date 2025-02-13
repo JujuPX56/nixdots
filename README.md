@@ -1,6 +1,7 @@
 # Nixdots
 
 Ma configuration NixOS + Hyprland avec NVidia
+
 ![Capture d'ecran de la configuration](https://github.com/JujuPX56/nixdots/blob/main/assets/screenshot1.png?raw=true)![Deuxieme capture d'ecran](https://github.com/JujuPX56/nixdots/blob/main/assets/screenshot2.png?raw=true)
 ## Installation
 
