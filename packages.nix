@@ -6,7 +6,7 @@
     git
     hyprland
     ghostty
-    wofi
+    rofi-wayland
     vesktop
     fish
     mako
