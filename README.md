@@ -14,7 +14,7 @@ Pour utiliser la configuration, il suffit de cloner le repo dans un dossier (de 
 
 Vous n'avez juste qu'a lancer le script d'installation  situé dans le dossier **scripts/** et le tour est joué !
 
->ATTENTION, LE SCRIPT N'A PAS ENCORE EU L'OCCASION D'ETRE TESTE DONC SI VOUS ENCONTREZ DES ERREURS N'HESITEZ PAS A OUVRIR UNE ISSUE
+>⚠️ATTENTION, LE SCRIPT N'A PAS ENCORE EU L'OCCASION D'ETRE TESTE DONC SI VOUS ENCONTREZ DES ERREURS N'HESITEZ PAS A OUVRIR UNE ISSUE ⚠️
 
     ./scripts/install.sh
 
