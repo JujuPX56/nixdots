@@ -1,55 +1,40 @@
 # Nixdots
 
 Ma configuration NixOS + Hyprland avec NVidia
-
+![Capture d'ecran de la configuration](https://github.com/JujuPX56/nixdots/blob/main/assets/screenshot1.png?raw=true)![Deuxieme capture d'ecran](https://github.com/JujuPX56/nixdots/blob/main/assets/screenshot2.png?raw=true)
 ## Installation
 
 Pour utiliser la configuration, il suffit de cloner le repo dans un dossier (de préférence .dotfiles dans le home)
 
-```bash
-git clone https://github.com/JujuPX56/nixdots ~/.dotfiles && cd .dotfiles && rm -rf .git
-```
+    git clone https://github.com/JujuPX56/nixdots ~/.dotfiles
 
-Il faut ensuite remplacer la configuration matérielle avec celle effectuée automatiquement lors de l’installation
+> Il faut ensuite changer la variable user dans flake.nix avec le nom
+> d'utilisateur que vous avez choisi l'hors de l'installation de NixOS.
 
-```bash
-sudo cp /etc/nixos/hardware-configuration.nix . && sudo chown $USER hardware-configuration.nix
-```
+Vous n'avez juste qu'a lancer le script d'installation  situé dans le dossier **scripts/** et le tour est joué !
 
-Ensuite, c’est la partie un peu longue :
-Il faut remplacer chaque mention de “jujupx” dans configuration.nix, flake.nix et home.nix avec le nom d’utilisateur que vous avez choisi lors de l’installation de l’OS.
+    ./scripts/install.sh
 
-Ensuite, il suffit de reconstruire l’OS avec la nouvelle configuration :
+## Raccourcis claviers
 
-```bash
-nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
-nix-channel --update
-```
+  
+|Raccourcis| Actions |
+|--|--|
+| <kbd>Super</kbd> + <kbd>T</kbd> | Ouvrir le terminal (ghostty) |
+| <kbd>Super</kbd> + <kbd>F</kbd> | Ouvrir le navigateur (firefox) |
+| <kbd>Super</kbd> + <kbd>D</kbd> | Ouvrir le lanceur d'application (rofi) |
+| <kbd>Super</kbd> + <kbd>1-9</kbd> | Changer de workspaces (bureaux virtuels) |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>1-9</kbd> | Faire migrer un fenêtre entre plusieurs workspaces|
+| <kbd>Super</kbd> + <kbd>E</kbd> | Ouvrir l'explorateur de fichiers (dolphin) |
+| <kbd>Super</kbd> + <kbd>S</kbd> | Ouvrir le workspace spécial|
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>S</kbd> | Faire migrer la fenêtre vers le workspace spécial|
+| <kbd>Super</kbd> + <kbd>M</kbd> | Fermer la session d'Hyprland|
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>Q</kbd> | Fermer la fenêtre |
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>R</kbd> | Recharger Hyprland |
+| <kbd>Super</kbd> + <kbd>P</kbd> | Faire une capture d'écran et l'enregistrer|
+| <kbd>Super</kbd> + <kbd>Shift</kbd> + <kbd>P</kbd> | Faire une capture d'écran et la copier dans le presse-papiers |
+| <kbd>Super</kbd> + <kbd>Clic-droit</kbd> | Redimensionner une fenêtre|
+| <kbd>Super</kbd> + <kbd>Clic-gauche</kbd> | Bouger une fenêtre|
+| <kbd>Super</kbd> + <kbd>V</kbd> | Passe une fenêtre en mode flottant|
+| <kbd>Super</kbd> + <kbd>Entrer</kbd> | Passe une fenêtre en mode plein-écran|
 
-```bash
-sudo nixos-rebuild switch --flake .
-```
-
-Après cela, il faut installer home-manager (le logiciel permettant la gestion du .config) et reconstruire ce dernier
-
-```bash
-nix-shell '<home-manager>' -A install && home-manager switch —-flake .
-```
-
-Finalement il faut utiliser le script wal-change afin de générer la palette de couleur pour Hyprland. Pour cela lancez une session de fish :
-
-```bash
-fish
-```
-Tapez ensuite la commande suivante pour utiliser le fond d’écran par défaut de la configuration :
-
-```fish
-wal-change wallpaper/wallpaper.png
-```
-
-## Vous n’avez plus qu’à redémarrer et le tour est joué !
-
-## Todo
-
-- Liste des raccourcis clavier
-- Script d’installation ?
