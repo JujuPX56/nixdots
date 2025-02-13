@@ -5,6 +5,7 @@ cd ~/.dotfiles
 #Copies the hardware scan and sets the user as the owner
 sudo cp /etc/nixos/hardware-configuration.nix .
 sudo chown $USER hardware-configuration.nix
+rm -rf .git
 
 #Rebuild the system
 sudo nixos-rebuild switch --flake .
