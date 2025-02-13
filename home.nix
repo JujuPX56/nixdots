@@ -1,10 +1,10 @@
-{ inputs, pkgs, config, lib, ... }:
+{ inputs, pkgs, config, lib, username, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
-  home.username = "jujupx";
-  home.homeDirectory = "/home/jujupx";
+  home.username = "${username}";
+  home.homeDirectory = "/home/${username}";
 
   # This value determines the Home Manager release that your configuration is
   # compatible with. This helps avoid breakage when a new Home Manager release
@@ -50,6 +50,8 @@
   #
   home.sessionVariables = {
     # EDITOR = "emacs";
+    EDITOR = "nvim";
+    NIXPKGS_ALLOW_UNFREE = 1;
   };
 
   # Enable zoxide and everything else (no shell integration needed)
@@ -91,13 +93,14 @@
     window-padding-balance = true;
     window-padding-y = 15;
     window-padding-x = 15;
-  };
 
+    background-opacity = 0.8;
+  };
   # Git config
   programs.git.enable = true;
 
-  programs.git.userName = "jujupx";
-  programs.git.userEmail = "jujupx@jujupx.me";
+  programs.git.userName = "${username}";
+  programs.git.userEmail = "${username}@${username}.me";
 
   # Github Cli config
 
@@ -113,7 +116,7 @@
     vesktop = {
       categories=["Network" "InstantMessaging" "Chat"];
       exec="vesktop -wlr";
-      genericName= "Internet Messenger";
+     genericName= "Internet Messenger";
       icon= "vesktop";
       # keywords= ["discord" "vencord" "electron" "chat"];
       name= "Vesktop";
@@ -142,7 +145,9 @@
       pywalfox
       sponsorblock
       darkreader
+      dashlane
       return-youtube-dislikes
+      enhancer-for-youtube
       behind-the-overlay-revival
     ];
   };

@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, username, ... }:
 
 {
   imports =
@@ -55,9 +55,8 @@
   #Flatpak
   services.flatpak.enable = true;
   
-  #Mumble Server
-  services.murmur.port = 8760;
-  services.murmur.enable = true;
+  # Thermald
+  services.thermald.enable = true;
 
   # Makes rebuild faster for some reason lol
   documentation.man.generateCaches = false;
@@ -145,7 +144,7 @@
   programs.steam.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jujupx = {
+  users.users.${username} = {
     isNormalUser = true;
     description = "JujuPX";
     extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" ];

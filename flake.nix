@@ -25,11 +25,15 @@
       system = "x86_64-linux";
       lib = nixpkgs.lib;
       pkgs = nixpkgs.legacyPackages.${system};
+      #---------------------------#
+      username = "jujupx"; # <------------- Changez cette ligne avec votre nom d'utilisateur
+      #---------------------------#
     in {
       nixosConfigurations = {
         nixos = lib.nixosSystem {
           inherit system;
           modules = [ ./configuration.nix ];
+          specialArgs = { inherit username; };
         };
       };
       homeConfigurations = {
@@ -38,7 +42,7 @@
           modules = [
           ./home.nix 
           ];
-          extraSpecialArgs = { inherit inputs; };
+          extraSpecialArgs = { inherit inputs username; };
         };
       };
     };
