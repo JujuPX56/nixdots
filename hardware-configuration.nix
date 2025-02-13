@@ -18,14 +18,6 @@
       fsType = "ext4";
     };
 
-  fileSystems."/mnt/SecondDisk" = {
-    device = "/dev/disk/by-uuid/260af84a-9cbc-49b7-8f31-3ccad55aa381";
-    fsType = "ext4";
-    options = [
-      "users"
-    ];
-  };
-
   fileSystems."/boot" =
     { device = "/dev/disk/by-uuid/73A6-E441";
       fsType = "vfat";
