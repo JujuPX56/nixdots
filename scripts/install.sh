@@ -17,6 +17,13 @@ nix-channel --update
 nix-shell '<home-manager>' -A install
 home-manager switch —-flake .
 
+#Sets up the colors for the coonfig
+wal -i ~/.dotfiles/wallpaper/wallpaper.png
+cp ~/.cache/wal/colors-discord.css ~/.config/vesktop/themes/
+cp ~/.cache/wal/colors-waybar.css ~/.config/waybar/
+mkdir -p ~/.config/ghostty/themes
+cp ~/.cache/wal/ghostty ~/.config/ghostty/themes/
+
 #Prints the instructions for the wallpaper
 printf "L'installation a été un succès !
 Afin de générer les couleurs à partir du fond d'écran, il faut lancer un terminal dans Hyprland avec :
