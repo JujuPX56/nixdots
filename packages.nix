@@ -39,25 +39,24 @@
     nwg-displays
     libinput
     vlc
-    avalonia-ilspy
     xwaylandvideobridge
     youtube-music
     protontricks
     python313Packages.waitress
     python313Full
-    scanmem
     pyright
     r2modman
     xclip
     copyq
     parabolic
-    ollama
     heroic
     pywalfox-native
     gcc
     bluetuith
     wlogout
     cmake
+    wootility
+    wooting-udev-rules
   ];
   nixpkgs = { 
     overlays = [
