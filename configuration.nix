@@ -10,6 +10,7 @@
       ./hardware-configuration.nix
       ./nvidia.nix
       ./packages.nix
+      ./satisfactory.nix
     ];
 
 #   # NVidia drivers
@@ -37,6 +38,16 @@
   boot.loader.grub.efiSupport = true;
   boot.loader.grub.device = "nodev";
   boot.loader.grub.useOSProber = true;
+
+  #Sets up OBS virtual camera
+  boot.extraModulePackages = with config.boot.kernelPackages; [ v4l2loopback ];
+  boot.kernelModules = [
+    "v4l2loopback"
+  ];
+
+  environment.systemPackages = with pkgs; [
+    v4l-utils
+  ];
 
   #Sets up FISH (i love fish :3 )
   environment.shells = with pkgs; [ fish ];
@@ -147,7 +158,7 @@
   users.users.${username} = {
     isNormalUser = true;
     description = "JujuPX";
-    extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" "input" "libvirtd" "docker" ];
     packages = with pkgs; [
       kdePackages.kate
     #  thunderbird

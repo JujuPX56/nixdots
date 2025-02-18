@@ -48,7 +48,6 @@
     r2modman
     xclip
     copyq
-    parabolic
     heroic
     pywalfox-native
     gcc
@@ -57,6 +56,10 @@
     cmake
     wootility
     wooting-udev-rules
+    gpu-screen-recorder-gtk
+    audacity
+    gamescope
+    steamcmd
   ];
   nixpkgs = { 
     overlays = [
