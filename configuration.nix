@@ -10,7 +10,6 @@
       ./hardware-configuration.nix
       ./nvidia.nix
       ./packages.nix
-      ./satisfactory.nix
     ];
 
 #   # NVidia drivers
@@ -164,6 +163,13 @@
     #  thunderbird
     ];
   };
+
+  virtualisation.docker.enable = true;
+
+  virtualisation.docker.rootless = {
+  enable = true;
+  setSocketVariable = true;
+};
 
   # Install firefox.
   programs.firefox.enable = true;
